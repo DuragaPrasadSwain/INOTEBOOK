@@ -3,7 +3,8 @@ import { Link,useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-    const host = "http://localhost:5000"
+    // const host = "http://localhost:5000"
+    const host = "https://inotebook-backend-44ue.onrender.com"
     // const host = "http://inotebook.q5fnlpk.mongodb.net/inotebook"
 
 

@@ -4,7 +4,8 @@ import alertContext from '../context/alerts/alertContext'
 
 const Signin = () => {
 
-  const host = "http://localhost:5000"
+  // const host = "http://localhost:5000"
+  const host = "https://inotebook-backend-44ue.onrender.com"
   // const host = "http://inotebook.q5fnlpk.mongodb.net/inotebook"
 
               //mongodb+srv://project:zdsANglr6cQ0Qhnm@inotebook.q5fnlpk.mongodb.net/
