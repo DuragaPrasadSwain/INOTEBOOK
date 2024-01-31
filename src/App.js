@@ -18,7 +18,7 @@ function App() {
     <>
     <NoteState> 
       <AlertState>
-      <Router basename='/inotebook'>
+      <Router>
 
         <Navbar />
         
