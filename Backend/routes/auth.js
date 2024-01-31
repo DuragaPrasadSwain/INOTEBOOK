@@ -10,7 +10,8 @@ const fetchUser = require('../middleware/fetchUser')
 
 
 
-const   JWT_SECRET = 'DURGAP&SWAIN@123'
+// const   JWT_SECRET = 'DURGAP&SWAIN@123'
+const   JWT_SECRET = SECRET_CODE        //.env
 
 let success = true
 
