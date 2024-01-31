@@ -1,11 +1,18 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import alertContext from '../context/alerts/alertContext'
 
 const Signin = () => {
 
+  const host = "http://localhost:5000"
+  // const host = "http://inotebook.q5fnlpk.mongodb.net/inotebook"
+
+              //mongodb+srv://project:zdsANglr6cQ0Qhnm@inotebook.q5fnlpk.mongodb.net/
+
   const [credential, setcredential] = useState({ name: "", email: "", password: "", cpassword: "" })
+  const alertcontext = useContext(alertContext)
+  const {inalert} = alertcontext
   const navigate = useNavigate()
-  const ref = useRef(null)
   const onChange = (e) => {
     setcredential({ ...credential, [e.target.name]: e.target.value })
   }
@@ -14,11 +21,11 @@ const Signin = () => {
     e.preventDefault()
 
     if (credential.password === credential.cpassword) {
-      ref.current.hidden = 'true'
+      // ref.current.hidden = 'true'
 
       console.log("if");
 
-      const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+      const response = await fetch(`${host}/api/auth/createuser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -30,7 +37,8 @@ const Signin = () => {
 
     } else {
       console.log("else");
-      ref.current.className = "alert alert-danger"
+      // ref.current.className = "alert alert-danger"
+      inalert("danger","PASSWORD and CONFIRM PASSWORD mismatched")
     }
 
 
@@ -39,8 +47,9 @@ const Signin = () => {
 
   return (
     <div className=" container">
+      <h1>Create your account</h1>
       <form onSubmit={onsubmit}>
-        <div className="mb-3">
+        <div className="mb-3 my-5">
           <div className="mb-3">
             <label className="form-label">Name</label>
             <input className="form-control" required type="text" name='name' onChange={onChange} aria-label="default input example" />
@@ -56,9 +65,9 @@ const Signin = () => {
           <label htmlFor="exampleInputPassword1" className="form-label">Conform Password</label>
           <input type="password" className="form-control" name='cpassword' required onChange={onChange} id="cpassword" />
         </div>
-        <div ref={ref} className = "" role="alert">
+        {/* <div ref={ref} className = "" role="alert">
         PASSWORD and CONFIRM PASSWORD mismatched
-        </div>
+        </div> */}
         <button  type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>

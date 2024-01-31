@@ -37,8 +37,6 @@ function Navbar() {
                         </ul>
                         <form className="d-flex" role="search">
                            <button type="button" onClick={handleclick} className="btn btn-primary mx-2">{localStorage.length===0?"Login":"Logout"}</button>
-                           {/* <button type="button" onClick={handleclick} className="btn btn-primary mx-2">{"signin"}</button> */}
-                            {/* <Link className="btn btn-primary mx-2" to="/signin" role="button">sign in</Link> */}
                         </form>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 const NoteState = (props) => {
 
   const host ="http://localhost:5000/"
+  // const host ="http://inotebook.q5fnlpk.mongodb.net/inotebook"
 
     const notestate = [
       ]

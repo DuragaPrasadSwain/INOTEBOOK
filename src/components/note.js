@@ -79,12 +79,10 @@ const Note = () => {
             {notes.length === 0 ? "Empty Note List" : ""}
           </div>
 
-          {/* <div className=" d-flex align-content-start flex-nowrap row my-3 "> */}
           {notes.map((note) => {
 
             return <Noteitem key={note._id} updateNote={updateNote} note={note} />
           })}
-          {/* </div> */}
 
 
         </div>

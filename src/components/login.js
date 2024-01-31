@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { Link,useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+    const host = "http://localhost:5000"
+    // const host = "http://inotebook.q5fnlpk.mongodb.net/inotebook"
+
+
     const navigate = useNavigate();
 
     const [credential, setcredential] = useState({ email: "", password: "" })
@@ -9,14 +14,15 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         localStorage.clear()
-        const response = await fetch(`http://localhost:5000/api/auth/userlogin`, {
+        const response = await fetch(`${host}/api/auth/userlogin`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             }, body: JSON.stringify({ email: credential.email, password: credential.password }),
         });
         const json = await response.json();
-        localStorage.setItem('token', json.authToken)
+
+        if(!(json.authToken===null))localStorage.setItem('token', json.authToken)
 
         if (json.success) {
             navigate("/home")
@@ -32,8 +38,10 @@ const Login = () => {
 
     return (
         <div className='container'>
+            <h1>Login your account</h1>
             <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div className="mb-3 my-5">
+                    
                     <label htmlFor="email1" className="form-label">Email address</label>
                     <input type="email" className="form-control" required id="email1" value={credential.email} onChange={onchange} name='email' aria-describedby="emailHelp" />
                 </div>
