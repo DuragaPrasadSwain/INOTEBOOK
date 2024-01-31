@@ -26,7 +26,7 @@ const Signin = () => {
       });
       const json = await response.json();
       console.log(json)
-      navigate("/")
+      navigate("/inotebook")
 
     } else {
       console.log("else");
