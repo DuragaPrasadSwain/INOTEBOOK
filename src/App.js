@@ -15,8 +15,7 @@ import Signin from './components/signin';
 
 
 function App() {
-  const a = "234234"
-  console.log(a)
+  
   return (
     <>
       <NoteState> 
