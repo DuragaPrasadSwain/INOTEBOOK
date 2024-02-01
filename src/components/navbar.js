@@ -11,7 +11,7 @@ function Navbar() {
 
     const handleclick = () => {
         localStorage.clear()
-        navigate("/inotebook")
+        navigate("/")
     }
 
   React.useEffect(() => {
@@ -28,7 +28,7 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname==="/home"?"active":""}`} aria-current="page" to={localStorage.length===0?"/inotebook":"/home" }>Home</Link>
+                                <Link className={`nav-link ${location.pathname==="/home"?"active":""}`} aria-current="page" to={localStorage.length===0?"/":"/home" }>Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className= {`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">About</Link>

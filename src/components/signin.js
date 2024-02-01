@@ -34,7 +34,7 @@ const Signin = () => {
       });
       const json = await response.json();
       console.log(json)
-      navigate("/inotebook")
+      navigate("/")
 
     } else {
       console.log("else");
